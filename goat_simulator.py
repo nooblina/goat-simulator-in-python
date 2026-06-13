@@ -128,9 +128,12 @@ places = {
 # Player data
 # ----------------------------------------------------------------------------------------
 
+# %%
+
 current_place = "Zuhause"
 inventory = []
 chaos = 0
+
 
 print("Standort:", current_place)
 print("Chaos-Level:", chaos)
