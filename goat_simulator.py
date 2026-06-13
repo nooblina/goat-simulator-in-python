@@ -47,79 +47,79 @@ Erdgeschoss -- 1. Stock    Park  --  Farm -- Schwarzmarkt
 
 places = {
  
-    "Zuhause": {
+	"Zuhause": {
 		"name": "Zuhause",
-    	"connections": ["Marktplatz"]
+		"connections": ["Marktplatz"]
 	},
 
 	"Marktplatz": {
-        "name": "Marktplatz",
-        "connections": ["Zuhause", "Einkaufszentrum", "Bahnhof", "Park"]
+		"name": "Marktplatz",
+		"connections": ["Zuhause", "Einkaufszentrum", "Bahnhof", "Park"]
 	},
-    
+	
 	"Einkaufszentrum": {
-        "name": "Einkaufszentrum",
-        "connections": ["Marktplatz", "Erdgeschoss", "1. Stock"]
+		"name": "Einkaufszentrum",
+		"connections": ["Marktplatz", "Erdgeschoss", "1. Stock"]
 	},
-    
+	
 	"Bahnhof": {
-        "name": "Bahnhof",
-        "connections": ["Marktplatz", "Farm", "Schwarzmarkt"]
+		"name": "Bahnhof",
+		"connections": ["Marktplatz", "Farm", "Schwarzmarkt"]
 	},
-    
+	
 	"Erdgeschoss": {
-        "name": "Erdgeschoss",
-        "connections": ["Einkaufszentrum", "1. Stock", "Boutiquen"]
+		"name": "Erdgeschoss",
+		"connections": ["Einkaufszentrum", "1. Stock", "Boutiquen"]
 	},
-    
+	
 	"1. Stock": {
-        "name": "1. Stock",
-        "connections": ["Einkaufszentrum", "Erdgeschoss", "Imbiss", "Kino"]
+		"name": "1. Stock",
+		"connections": ["Einkaufszentrum", "Erdgeschoss", "Imbiss", "Kino"]
 	},
-    
+	
 	"Park": {
-        "name": "Park",
-        "connections": ["Marktplatz", "Museum", "Schwimmbad"]
+		"name": "Park",
+		"connections": ["Marktplatz", "Museum", "Schwimmbad"]
 	},
-    
+	
 	"Farm": {
-        "name": "Farm",
-        "connections": ["Bahnhof", "Park", "Schwarzmarkt"]
+		"name": "Farm",
+		"connections": ["Bahnhof", "Park", "Schwarzmarkt"]
 	},
-    
+	
 	"Schwarzmarkt": {
-        "name": "Schwarzmarkt",
+		"name": "Schwarzmarkt",
 		"connections": ["Bahnhof", "Farm"]
 	},
-    
+	
 	"Boutiquen": {
-        "name": "Boutiquen",
-        "connections": ["Erdgeschoss"]
+		"name": "Boutiquen",
+		"connections": ["Erdgeschoss"]
 	},
-    
+	
 	"Museum": {
-        "name": "Museum",
-        "connections": ["Park"]
+		"name": "Museum",
+		"connections": ["Park"]
 	},
-    
+	
 	"Schwimmbad": {
 		"name": "Schwimmbad",
-        "connections": ["Park", "Kanalisation"]
+		"connections": ["Park", "Kanalisation"]
 	},
-    
+	
 	"Imbiss": {
-        "name": "Imbiss",
-        "connections": ["1. Stock"]
+		"name": "Imbiss",
+		"connections": ["1. Stock"]
 	},
-    
+	
 	"Kino": {
-        "name": "Kino",
-        "connections": ["1. Stock"]
+		"name": "Kino",
+		"connections": ["1. Stock"]
 	},
-    
+	
 	"Kanalisation": {
-        "name": "Kanalisation",
-        "connections": ["Schwimmbad"]
+		"name": "Kanalisation",
+		"connections": ["Schwimmbad"]
 	}
 } 
 
@@ -134,8 +134,22 @@ current_place = "Zuhause"
 inventory = []
 chaos = 0
 
+while True:
+	
+	print("Standort:", current_place)
+	print("Chaos-Level:", chaos)
+	print("Inventar:", inventory)
 
-print("Standort:", current_place)
-print("Chaos-Level:", chaos)
-print("Inventar:", inventory)
 
+	print("\nMögliche Ziele:")
+
+	for destination in places[current_place]["connections"]:
+		print("-", destination)
+	
+	choice = input("\nWohin möchtest du gehen?")
+
+	if choice in places[current_place]["connections"]:
+		current_place = choice
+		print("Du gehst zu", choice)
+		print("Neuer Standort:", current_place)
+	
