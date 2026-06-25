@@ -68,81 +68,133 @@ places = {
 			},
 
 			"Sammlungen": {
-				"text": "arff",		# braucht multiple choices, zb achievements, collectables,...
+				"text": "arff",		# braucht multiple choices, zb achievements, collectables,... abfragen
 			}
 
 		}
 	},
+
 
 	"Marktplatz": {
 		"name": "Marktplatz",
 		"connections": ["Zuhause", "Einkaufszentrum", "Bahnhof", "Park"],
-		"actions": {
+		"objects": {
 
-			"rammen": {
-				"text": "foo",
-				"chaos_gain": 5		# muss irgendwie je nach ziel variieren
+			"obststand": {
+				"name": "Obststand",
+				"actions": {
+
+					"rammen": {
+						"text": "Du zerschmetterst den Obststand! Äpfel und Kokosnüsse fliegen durch die Luft.",
+						"chaos_gain": 10
+					},
+
+					"lecken": {	# +1 Banane ins Inventar
+						"text": "Du stibitzt eine Bääänane. Ein Multi-Funktions-Werkzeug!",
+						"chaos_gain": 5
+					},
+
+					"meckern": {
+						"text": "Bäääh! Du erschreckst die Bäuerin. Sie krault dir dennoch das Kinn.",
+						"chaos_gain": 2
+					}
+				}
 			},
 
-			"lecken": {
-				"text": "miau",
-				"chaos_gain": 3		# muss irgendwie je nach ziel variieren
+
+			"brunnen":{
+				"name": "Brunnen",
+				"actions": {
+
+					"rammen": {	# negativer Statuseffekt: Gehirnerschütterung
+						"text": "Autsch!!  Wieso machst du sowas? :(",
+						"chaos_gain": 7
+					},
+
+					"lecken": {	# Währung +
+						"text": "Lecker, ein Wunschbrunnen! Du stibitzt ein paar Münzen.",
+						"chaos_gain": 1
+					},
+
+					"meckern": {
+						"text": "Bäääh! Ein Fisch hört dich und kommt an die Wasseroberfläche. Er ist nicht sonderlich gesprächig.",
+						"chaos_gain": 1
+					}
+				}
 			},
 
-			"meckern": {
-				"text": "arff",
-				"chaos_gain": 1 	# muss irgendwie je nach ziel variieren
+			
+			"fast_travel": {
+				"name": "Bushaltestelle",
+				"actions": " " # ermöglicht Schnellreise zu Zuhause, Marktplatz, EZentrum, Bahnhof, Park
 			}
 
 		}
 	},
-	
+
+
+
 	"Einkaufszentrum": {
 		"name": "Einkaufszentrum",
 		"connections": ["Marktplatz", "Erdgeschoss", "1. Stock"],
-		"actions": {
+		"objects": {
 
-			"rammen": {
-				"text": "foo",
-				"chaos_gain": 5		# muss irgendwie je nach ziel variieren
+			"mülleimer": {
+				"name": "Mülleimer",
+				"actions": {
+
+					"rammen": {
+						"text": "Du rammst den Mülleimer. 'zufälliges Item' springt heraus.",
+						"chaos_gain": 3
+					},
+
+					"lecken": {
+						"text": "Der Mülleimer ist fest verbaut. Nichts passiert.",
+						"chaos_gain": 2
+					},
+			
+
+					"meckern": {
+						"text": "Bäääh! All eyes on you.",
+						"chaos_gain": 3	
+					},
+				}
 			},
 
-			"lecken": {
-				"text": "miau",
-				"chaos_gain": 3		# muss irgendwie je nach ziel variieren
-			},
 
-			"meckern": {
-				"text": "arff",
-				"chaos_gain": 1 	# muss irgendwie je nach ziel variieren
-			}
-
-		}
+		},
 	},
+
 	
 	"Bahnhof": {
 		"name": "Bahnhof",
 		"connections": ["Marktplatz", "Farm", "Schwarzmarkt"],
-		"actions": {
+		"objects": {
 
-			"rammen": {
-				"text": "foo",
-				"chaos_gain": 5		# muss irgendwie je nach ziel variieren
+			"Fahrstuhl": {
+				"name": "Fahrstuhl",
+				"actions": {
+
+					"rammen": {
+						"text": "",
+						"chaos_gain": 10
+					},
+
+					"lecken": {
+						"text": "",
+						"chaos_gain": 5
+					},
+
+					"meckern": {
+						"text": "",
+						"chaos_gain": 2
+					}
+				}
 			},
-
-			"lecken": {
-				"text": "miau",
-				"chaos_gain": 3		# muss irgendwie je nach ziel variieren
-			},
-
-			"meckern": {
-				"text": "arff",
-				"chaos_gain": 1 	# muss irgendwie je nach ziel variieren
-			}
-
-		}
+            
+		},
 	},
-	
+
 	"Erdgeschoss": {
 		"name": "Erdgeschoss",
 		"connections": ["Einkaufszentrum", "1. Stock", "Boutiquen"],
